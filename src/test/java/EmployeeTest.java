@@ -27,7 +27,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void testSalaryEmployeeConstructor() {
+    public void SalaryEmployeeConstructor() {
         assertEquals("Nami", salaryEmployee.getName());
         assertEquals("s193", salaryEmployee.getID());
         assertEquals(200000.00, salaryEmployee.getPayRate());
