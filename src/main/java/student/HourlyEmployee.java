@@ -13,7 +13,7 @@ public class HourlyEmployee extends AbstractEmployee {
         if (hoursWorked < 40){
             return getPayRate() * hoursWorked;
         }else{
-            double regularPay = hoursWorked * 40;
+            double regularPay = 40 * getPayRate();
             double overtimePay = getPayRate() * overtimeRate * (hoursWorked - 40);
             return regularPay + overtimePay;
         }

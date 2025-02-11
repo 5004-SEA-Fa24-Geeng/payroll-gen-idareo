@@ -11,7 +11,7 @@ public class SalaryEmployee extends AbstractEmployee{
 
     /** calculates grossPay per pay period*/
 
-    protected double calculateGrossPay(double hoursWorked){
+    public double calculateGrossPay(double hoursWorked){
         return getPayRate()/24;
     }
 
