@@ -48,7 +48,7 @@ public class EmployeeTest {
 
         double hoursWorked = 60;
         double regularPay = 40 * hourlyEmployee.getPayRate();
-        double overtimePay = 20 * hourlyEmployee.getPayRate() * 1.5;
+        double overtimePay = hourlyEmployee.getPayRate() * 1.5 * (hoursWorked - 40);
         double expectedGrossPay = regularPay + overtimePay;
         assertEquals(expectedGrossPay, hourlyEmployee.calculateGrossPay(hoursWorked), 0.01);
 

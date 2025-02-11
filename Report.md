@@ -19,12 +19,12 @@ This report helps you demonstrate your understanding of the concepts. You should
 
 4. Can you provide an example of a has-a relationship in your code (if one exists)?
 
-    **FILL IN**
+    The abstractEmployee class has an employeeType (which is an enum to define the type of employee)
 
 
 5. Can you provide an example of an is-a relationship in your code (if one exists)?
 
-   **FILL IN**
+   Both my HourlyEmployee and SalaryEmployee extend the abstract employee and therefore and is-a relationship with it.
 
 6. What is the difference between an interface and an abstract class?
     
