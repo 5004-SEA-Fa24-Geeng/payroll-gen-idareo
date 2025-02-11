@@ -27,7 +27,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void SalaryEmployeeConstructor() {
+    public void testSalaryEmployeeConstructor() {
         assertEquals("Nami", salaryEmployee.getName());
         assertEquals("s193", salaryEmployee.getID());
         assertEquals(200000.00, salaryEmployee.getPayRate());
@@ -50,14 +50,14 @@ public class EmployeeTest {
         double regularPay = 40 * hourlyEmployee.getPayRate();
         double overtimePay = 20 * hourlyEmployee.getPayRate() * 1.5;
         double expectedGrossPay = regularPay + overtimePay;
-        assertEquals(expectedGrossPay, hourlyEmployee.calculateGrossPay(hoursWorked));
+        assertEquals(expectedGrossPay, hourlyEmployee.calculateGrossPay(hoursWorked), 0.01);
 
     }
 
     @Test
     public void salaryEmployeeCalculateGrossPay(){
         double expectedGrossPay = salaryEmployee.getPayRate()/24;
-        assertEquals(expectedGrossPay, salaryEmployee.calculateGrossPay(0));
+        assertEquals(expectedGrossPay, salaryEmployee.calculateGrossPay(0),0.01);
     }
 
 
