@@ -46,7 +46,7 @@ You should feel free to number your brainstorm.
 
 Go through your completed code, and update your class diagram to reflect the final design. Make sure you check the file in the browser on github.com to make sure it is rendering correctly. It is normal that the two diagrams don't match! Rarely (though possible) is your initial design perfect. 
 
-
+[//]: # ( [MermaidChart: eaa3a140-a8a7-4e28-a621-5be49b7c68c4]
 
 > [!WARNING]
 > If you resubmit your assignment for manual grading, this is a section that often needs updating. You should double check with every resubmit to make sure it is up to date.
