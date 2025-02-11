@@ -1,6 +1,6 @@
 package student;
 
-/** 
+/**
  * This is a static class (essentially functions) that will help you build objects from CSV strings.
  * These objects are then used in the rest of the program. Often these builders are associated
  * with the objects themselves and the concept of a factory, but we placed
@@ -8,23 +8,25 @@ package student;
  */
 public final class Builder {
 
-    /** String format (String employeeName, String employeeID,double payRate,double preTaxDeductions,  double ytdEarnings, double ytdTaxesPaid) */
+    /**
+     * String format (String employeeName, String employeeID,double payRate,double preTaxDeductions,  double ytdEarnings, double ytdTaxesPaid)
+     */
     private Builder() {
-        }
+    }
 
-     /**
+    /**
      * Builds an employee object from a CSV string.
-     * 
+     * <p>
      * You may end up checking the type of employee (hourly or salary) by looking at the first
      * element of the CSV string. Then building an object specific to that type.
-     * 
+     *
      * @param csv the CSV string
      * @return the employee object
      */
     public static IEmployee buildEmployeeFromCSV(String csv) {
 
         String[] parts = csv.split(",");
-        if(parts.length != 7) {
+        if (parts.length != 7) {
             throw new IllegalArgumentException("Error: Invalid Input");
         }
 
@@ -41,28 +43,28 @@ public final class Builder {
         double payRate;
         try {
             payRate = Double.parseDouble(parts[3]);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Error: " + parts[3] + " is not a valid number.");
         }
 
         double preTaxDeductions = Double.parseDouble(parts[4]);
         try {
             preTaxDeductions = Double.parseDouble(parts[4]);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Error: " + parts[4] + " is not a valid number.");
         }
 
         double ytdEarnings = Double.parseDouble(parts[5]);
         try {
             ytdEarnings = Double.parseDouble(parts[5]);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Error: " + parts[5] + " is not a valid number.");
         }
 
         double ytdTaxesPaid = Double.parseDouble(parts[6]);
         try {
             ytdTaxesPaid = Double.parseDouble(parts[6]);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Error: " + parts[6] + " is not a valid number.");
         }
 
@@ -82,33 +84,32 @@ public final class Builder {
     }
 
 
-   /**
+    /**
      * Converts a TimeCard from a CSV String.
-     * 
+     *
      * @param csv csv string
      * @return a TimeCard object
      */
     public static ITimeCard buildTimeCardFromCSV(String csv) {
         String[] parts = csv.split(",");
-        if(parts.length != 2) {
+        if (parts.length != 2) {
             throw new IllegalArgumentException("Error!");
 
         }
 
         String employeeID = parts[0];
         double hoursWorked;
-        try{
+        try {
             hoursWorked = Double.parseDouble(parts[1]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Error!");
         }
-        catch(NumberFormatException e) {
-            throw new IllegalArgumentException("Error!");}
 
         if (hoursWorked < 0) {
             throw new IllegalArgumentException("Error: Hours worked cannot be negative.");
         }
         return new TimeCard(employeeID, hoursWorked);
     }
-
 
 
 }

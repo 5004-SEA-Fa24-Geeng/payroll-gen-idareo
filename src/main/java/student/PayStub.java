@@ -1,24 +1,33 @@
 package student;
 
-public class PayStub implements IPayStub{
+public class PayStub implements IPayStub {
 
-    /** Net pay variable */
+    /**
+     * Net pay variable
+     */
     private double netPay;
-    /** Taxes deducted*/
+    /**
+     * Taxes deducted
+     */
     private double taxes;
-    /**Employee Name*/
+    /**
+     * Employee Name
+     */
     private String employeeName;
-    /** year-to-date earnings*/
+    /**
+     * year-to-date earnings
+     */
     private double ytdEarnings;
-    /** PreTaxDeductions */
+    /**
+     * PreTaxDeductions
+     */
     private double ytdTaxesPaid;
 
     /**
-     *
      * @param employeeName employeeName
-     * @param netPay netPay of employee after all deductions
-     * @param taxes taxes of employee dependent on employeeType
-     * @param ytdEarnings current ytdEarnings of employees
+     * @param netPay       netPay of employee after all deductions
+     * @param taxes        taxes of employee dependent on employeeType
+     * @param ytdEarnings  current ytdEarnings of employees
      * @param ytdTaxesPaid current ytdTaxesPaid
      */
 
@@ -32,51 +41,46 @@ public class PayStub implements IPayStub{
 
 
     /**
-     *
      * @return employeeName
      */
-    public String getEmployeeName(){
+    public String getEmployeeName() {
         return this.employeeName;
     }
 
     /**
-     *
      * @return netPay
      */
-    public double getPay(){
+    public double getPay() {
         return this.netPay;
     }
 
     /**
-     *
      * @return taxes
      */
-    public double getTaxesPaid(){
+    public double getTaxesPaid() {
         return this.taxes;
     }
 
     /**
-     *
      * @return ytdEarnings
      */
-    public double getYtdEarnings(){
-        return this.ytdEarnings;}
+    public double getYtdEarnings() {
+        return this.ytdEarnings;
+    }
 
     /**
-     *
      * @return ytdTaxesPaid
      */
-    public double getYtdTaxesPaid(){
+    public double getYtdTaxesPaid() {
         return this.ytdTaxesPaid;
     }
 
 
     /**
-     *
      * @return payStub as string
      */
 
-    public String toCSV(){
+    public String toCSV() {
         return String.format(" %s, %.2f, %.2f, %.2f, %.2f", this.getEmployeeName(), this.getPay(), this.getTaxesPaid(), this.getYtdEarnings(), this.getYtdTaxesPaid());
     }
 
