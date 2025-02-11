@@ -7,10 +7,10 @@ package student;
  * them here to keep the code clean (and to help guide you).
  */
 public final class Builder {
-    
-    private Builder() {
-    }
 
+    /** String format (String employeeName, String employeeID,double payRate,double preTaxDeductions,  double ytdEarnings, double ytdTaxesPaid) */
+    private Builder() {
+        }
 
      /**
      * Builds an employee object from a CSV string.
@@ -23,9 +23,63 @@ public final class Builder {
      */
     public static IEmployee buildEmployeeFromCSV(String csv) {
 
-        return null;
-    }
+        String[] parts = csv.split(",");
+        if(parts.length != 7) {
+            throw new IllegalArgumentException("Error: Invalid Input");
+        }
 
+        String Type = parts[0].toUpperCase();
+        EmployeeType employeeType;
+        try {
+            employeeType = EmployeeType.valueOf(Type); // Convert string to enum
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Error: Invalid employee type '" + Type + "' in CSV.");
+        }
+        String employeeName = parts[1];
+        String employeeID = parts[2];
+
+        double payRate;
+        try {
+            payRate = Double.parseDouble(parts[3]);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException("Error: " + parts[3] + " is not a valid number.");
+        }
+
+        double preTaxDeductions = Double.parseDouble(parts[4]);
+        try {
+            preTaxDeductions = Double.parseDouble(parts[4]);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException("Error: " + parts[4] + " is not a valid number.");
+        }
+
+        double ytdEarnings = Double.parseDouble(parts[5]);
+        try {
+            ytdEarnings = Double.parseDouble(parts[5]);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException("Error: " + parts[5] + " is not a valid number.");
+        }
+
+        double ytdTaxesPaid = Double.parseDouble(parts[6]);
+        try {
+            ytdTaxesPaid = Double.parseDouble(parts[6]);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException("Error: " + parts[6] + " is not a valid number.");
+        }
+
+        IEmployee employee;
+        switch (employeeType) {
+            case HOURLY:
+                employee = new HourlyEmployee(employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
+                break;
+            case SALARY:
+                employee = new SalaryEmployee(employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
+                break;
+            default:
+                throw new IllegalArgumentException("Error: Invalid employee type.");
+        }
+
+        return employee;
+    }
 
 
    /**
@@ -35,7 +89,22 @@ public final class Builder {
      * @return a TimeCard object
      */
     public static ITimeCard buildTimeCardFromCSV(String csv) {
-    
-        return null;
+        String[] parts = csv.split(",");
+        if(parts.length != 2) {
+            throw new IllegalArgumentException("Error!");
+
+        }
+
+        String employeeID = parts[0];
+        double hoursWorked;
+        try{
+            hoursWorked = Double.parseDouble(parts[1]);
+        }
+        catch(NumberFormatException e) {
+            throw new IllegalArgumentException("Error!");
+        }
+        return new TimeCard(employeeID, hoursWorked);
     }
+
+
 }

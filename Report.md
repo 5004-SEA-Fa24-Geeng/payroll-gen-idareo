@@ -4,33 +4,58 @@ This report helps you demonstrate your understanding of the concepts. You should
 
 ## Technical Questions
 
-1. What does CSV stand for? 
-   
+1. What does CSV stand for?
+
+    "comma-seperated values"
 
 2. Why would you declare `List<IEmployee>` instead of `ArrayList<HourlyEmployee>`?
 
+    This allows you to use the interface which will create more flexibility when writing the code. it can be used with both hourly and salaried employees
+    You can also swap between using a LinkedList or ArrayList without the rest of the code being affected.
+
 3. When you have one class referencing another object, such as storing that object as one of the attributes of the first class - what type of relationship is that called (between has-a and is-a)?
 
+    This would be a has-a relationship.
+
 4. Can you provide an example of a has-a relationship in your code (if one exists)?
+
+    **FILL IN**
 
 
 5. Can you provide an example of an is-a relationship in your code (if one exists)?
 
+   **FILL IN**
 
 6. What is the difference between an interface and an abstract class?
-
+    
+    There are multiple differences between an interface and an abstract class but I think the major ones are:
+            1. Classes have clearly defined methods, whereas interfaces do not.
+            2. Within the class to implements the interface or extends the Abstract shape, you can implement multiple interfaces but only have one abstract class
+            3. All methods must be overriden with interfaces while with an abstract class, you can either use it or override the methods.
+            4. An interface can only have public methods, while an abstract class can have a mix of public, private and protected.
+            5. Interfaces implement a 'can-also-do' relationship while the abstract class implements an 'is-a-kind-of'
 
 7. What is the advantage of using an interface over an abstract class?
 
+    When there ara common attributes amongst multiple classes and the behavior needs to be different for each 
 
 8. Is the following code valid or not? `List<int> numbers = new ArrayList<int>();`, explain why or why not. If not, explain how you can fix it. 
 
+    The code is not valid because primitive types to not work with collection objects. It will need to be updated to use the wrapper class 'Integer' (List<Integer> numbers = new ArrayList<Integer>).
+    A wrapper object can then be created by calling the wrapper class.
 
 9. Which class/method is described as the "driver" for your application? 
 
-
+        PayrollGenerator.Java
 
 10. How do you create a temporary folder for JUnit Testing? 
+
+    @Test
+    void testWithTempFiles(@TempDir Path tempDir)
+    Path file = tempDir.resolve("temp_file.txt");
+    ...
+    }
+    
 
 
 ## Deeper Thinking 

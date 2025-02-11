@@ -6,7 +6,7 @@ package student;
  * While you are free to modify this, we use this in the Builder to help convert the CSV file to a
  * list of time cards.
  */
-public interface ITimeCard {
+public interface  ITimeCard {
 
     /**
      * Gets the employee ID.

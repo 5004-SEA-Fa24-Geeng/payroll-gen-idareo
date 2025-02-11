@@ -139,7 +139,7 @@ Here are a few tips to help you implement the program:
 2. You can use the `String.split(",")` method to split a line of a csv file into an array of strings. For example:  
    ```java
    String line = "HOURLY,John Doe,12345,15.00,100.0,1000.00,100.00";
-   String[] parts = line.split(",");`
+   String[] parts = line.split(",");
    // then each part can be accessed by the index
    if(parts[0].equals("HOURLY")) {
        // do something
