@@ -12,10 +12,19 @@ Place your class diagram below. Make sure you check the fil in the browser on gi
 [//]: # ( [MermaidChart: eaa3a140-a8a7-4e28-a621-5be49b7c68c4]
 
 
-
 ## (INITIAL DESIGN): Tests to Write - Brainstorm
 
 Write a test (in english) that you can picture for the class diagram you have created. This is the brainstorming stage in the TDD process. 
+
+@Test
+public void testHourlyEmployeeConstructor() {
+    assertEquals("Luffy", hourlyEmployee.getName());
+    assertEquals("s192", hourlyEmployee.getID());
+    assertEquals(30.00, hourlyEmployee.getPayRate());
+    assertEquals(0.00, hourlyEmployee.getPretaxDeductions());
+    assertEquals(41566.34, hourlyEmployee.getYTDEarnings());
+    assertEquals(9518.66,hourlyEmployee.getYTDTaxesPaid());
+}
 
 > [!TIP]
 > As a reminder, this is the TDD process we are following:
@@ -36,6 +45,8 @@ You should feel free to number your brainstorm.
 ## (FINAL DESIGN): Class Diagram
 
 Go through your completed code, and update your class diagram to reflect the final design. Make sure you check the file in the browser on github.com to make sure it is rendering correctly. It is normal that the two diagrams don't match! Rarely (though possible) is your initial design perfect. 
+
+
 
 > [!WARNING]
 > If you resubmit your assignment for manual grading, this is a section that often needs updating. You should double check with every resubmit to make sure it is up to date.
