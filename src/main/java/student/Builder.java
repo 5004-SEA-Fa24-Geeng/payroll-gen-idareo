@@ -101,10 +101,14 @@ public final class Builder {
             hoursWorked = Double.parseDouble(parts[1]);
         }
         catch(NumberFormatException e) {
-            throw new IllegalArgumentException("Error!");
+            throw new IllegalArgumentException("Error!");}
+
+        if (hoursWorked < 0) {
+            throw new IllegalArgumentException("Error: Hours worked cannot be negative.");
         }
         return new TimeCard(employeeID, hoursWorked);
     }
+
 
 
 }

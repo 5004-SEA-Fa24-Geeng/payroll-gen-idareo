@@ -67,3 +67,14 @@ Having heard these facts, your employer would like data about their salaries to 
 Think through the issue / making sure to cite any resources you use to help you better understand the topic. Then write a paragraph on what changes you would need to make to the system. For example, would there be any additional data points you would need to store in the employee file? Why? Consider what point in the payroll process you may want to look at the data, as different people could have different pretax benefits and highlight that. 
 
 The answer to this is mostly open. We ask that you cite at least two sources to show your understanding of the issue. The TAs will also give feedback on your answer, though will be liberal in grading as long as you show a good faith effort to understand the issue and making an effort to think about how your design to could help meet your employer's goals of salary equity. 
+
+I wouldn't store more information on employees but rather implement system, whereby employees would be required to work with other teams where possible. 
+Although pay disparities come down to mathematics on paper it is often started at the human level, during salary negotiations. The decisions that determine promotions and pay raises are 
+also limited to someone's boss or line manager and unfortunately if one is so unlucky to get a prejudice manager or HR personnel, these pay gaps become harder to close. 
+I do think it is important to keep track of the pay of all employees and increase the points during the year when it is discussed. However, this is more a track of progress, rather than
+hands-on tacking of the issue. 
+
+
+sources: 
+- https://www.gsb.stanford.edu/insights/whats-behind-pay-gap-stem-jobs
+- https://www.americanprogress.org/article/women-of-color-and-the-wage-gap/
