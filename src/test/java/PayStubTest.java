@@ -15,12 +15,12 @@ public class PayStubTest {
     }
 
     @Test
-    public void testGetterMethods(){
-            assertEquals("John Doe", payStub.getEmployeeName());
-            assertEquals(5000.00, payStub.getPay());
-            assertEquals(1000.00, payStub.getTaxesPaid());
-            assertEquals(100000.00, payStub.getYtdEarnings());
-            assertEquals(20000.00, payStub.getYtdTaxesPaid());
+    public void testGetterMethods() {
+        assertEquals("John Doe", payStub.getEmployeeName());
+        assertEquals(5000.00, payStub.getPay());
+        assertEquals(1000.00, payStub.getTaxesPaid());
+        assertEquals(100000.00, payStub.getYtdEarnings());
+        assertEquals(20000.00, payStub.getYtdTaxesPaid());
     }
 
     @Test

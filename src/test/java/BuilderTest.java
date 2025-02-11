@@ -12,8 +12,8 @@ public class BuilderTest {
 
     @BeforeEach
     public void setUp() {
-        hourlyEmployee = new HourlyEmployee( "Luffy",  "s192", 30.00, 0.00, 41566.34, 9518.66);
-        salaryEmployee = new SalaryEmployee("Nami",  "s193", 200000.00, 1000.00, 39706.33, 11627.00);
+        hourlyEmployee = new HourlyEmployee("Luffy", "s192", 30.00, 0.00, 41566.34, 9518.66);
+        salaryEmployee = new SalaryEmployee("Nami", "s193", 200000.00, 1000.00, 39706.33, 11627.00);
     }
 
     @Test
@@ -21,12 +21,12 @@ public class BuilderTest {
         String csv = "HOURLY,Luffy,s192,30.00,0.00,41566.34,9518.66";
         IEmployee employee = Builder.buildEmployeeFromCSV(csv);
 
-        assertEquals(hourlyEmployee.getName(), ((HourlyEmployee)employee).getName());
-        assertEquals(hourlyEmployee.getID(), ((HourlyEmployee)employee).getID());
-        assertEquals(hourlyEmployee.getPayRate(), ((HourlyEmployee)employee).getPayRate());
-        assertEquals(hourlyEmployee.getPretaxDeductions(), ((HourlyEmployee)employee).getPretaxDeductions());
-        assertEquals(hourlyEmployee.getYTDEarnings(), ((HourlyEmployee)employee).getYTDEarnings());
-        assertEquals(hourlyEmployee.getYTDTaxesPaid(), ((HourlyEmployee)employee).getYTDTaxesPaid());
+        assertEquals(hourlyEmployee.getName(), ((HourlyEmployee) employee).getName());
+        assertEquals(hourlyEmployee.getID(), ((HourlyEmployee) employee).getID());
+        assertEquals(hourlyEmployee.getPayRate(), ((HourlyEmployee) employee).getPayRate());
+        assertEquals(hourlyEmployee.getPretaxDeductions(), ((HourlyEmployee) employee).getPretaxDeductions());
+        assertEquals(hourlyEmployee.getYTDEarnings(), ((HourlyEmployee) employee).getYTDEarnings());
+        assertEquals(hourlyEmployee.getYTDTaxesPaid(), ((HourlyEmployee) employee).getYTDTaxesPaid());
     }
 
 
@@ -35,12 +35,12 @@ public class BuilderTest {
         String csv = "SALARY,Nami,s193, 200000.00, 1000.00, 39706.33, 11627.00";
         IEmployee employee = Builder.buildEmployeeFromCSV(csv);
 
-        assertEquals(salaryEmployee.getName(), ((SalaryEmployee)employee).getName());
-        assertEquals(salaryEmployee.getID(), ((SalaryEmployee)employee).getID());
-        assertEquals(salaryEmployee.getPayRate(), ((SalaryEmployee)employee).getPayRate());
-        assertEquals(salaryEmployee.getPretaxDeductions(), ((SalaryEmployee)employee).getPretaxDeductions());
-        assertEquals(salaryEmployee.getYTDEarnings(), ((SalaryEmployee)employee).getYTDEarnings());
-        assertEquals(salaryEmployee.getYTDTaxesPaid(), ((SalaryEmployee)employee).getYTDTaxesPaid());
+        assertEquals(salaryEmployee.getName(), ((SalaryEmployee) employee).getName());
+        assertEquals(salaryEmployee.getID(), ((SalaryEmployee) employee).getID());
+        assertEquals(salaryEmployee.getPayRate(), ((SalaryEmployee) employee).getPayRate());
+        assertEquals(salaryEmployee.getPretaxDeductions(), ((SalaryEmployee) employee).getPretaxDeductions());
+        assertEquals(salaryEmployee.getYTDEarnings(), ((SalaryEmployee) employee).getYTDEarnings());
+        assertEquals(salaryEmployee.getYTDTaxesPaid(), ((SalaryEmployee) employee).getYTDTaxesPaid());
     }
 
     @Test

@@ -23,7 +23,7 @@ public class EmployeeTest {
         assertEquals(30.00, hourlyEmployee.getPayRate());
         assertEquals(0.00, hourlyEmployee.getPretaxDeductions());
         assertEquals(41566.34, hourlyEmployee.getYTDEarnings());
-        assertEquals(9518.66,hourlyEmployee.getYTDTaxesPaid());
+        assertEquals(9518.66, hourlyEmployee.getYTDTaxesPaid());
     }
 
     @Test
