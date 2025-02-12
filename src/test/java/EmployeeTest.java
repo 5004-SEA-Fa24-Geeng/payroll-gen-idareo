@@ -12,8 +12,8 @@ public class EmployeeTest {
 
     @BeforeEach
     public void setUp() {
-        hourlyEmployee = new HourlyEmployee( "Luffy",  "s192", 30.00, 0.00, 41566.34, 9518.66);
-        salaryEmployee = new SalaryEmployee("Nami",  "s193", 200000.00, 1000.00, 39706.33, 11627.00);
+        hourlyEmployee = new HourlyEmployee( "Luffy",  "s192", 30.00,41566.34, 9518.66,0.0 );
+        salaryEmployee = new SalaryEmployee("Nami",  "s193", 200000.00, 39706.33,11627.00,1000.00);
     }
 
     @Test

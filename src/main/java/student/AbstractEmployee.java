@@ -41,13 +41,15 @@ public abstract class AbstractEmployee implements IEmployee {
      * @param ytdEarnings ytdEarnings for employee.
      * @param ytdTaxesPaid ytdTaxesPaid for employee.
      */
-    public AbstractEmployee(String employeeName, String employeeID, double payRate, double ytdEarnings, double ytdTaxesPaid, double preTaxDeductions) {
+    public AbstractEmployee(String employeeName, String employeeID, double payRate, double ytdEarnings, double ytdTaxesPaid, double preTaxDeductions, EmployeeType employeeType) {
         this.employeeName = employeeName;
         this.employeeID = employeeID;
         this.payRate = payRate;
         this.pretaxDeductions = preTaxDeductions;
         this.ytdEarnings = ytdEarnings;
         this.ytdTaxesPaid = ytdTaxesPaid;
+
+        this.employeeType = employeeType;
     }
 
     /**
