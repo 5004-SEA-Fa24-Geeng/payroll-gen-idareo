@@ -9,7 +9,7 @@ package student;
 public final class Builder {
 
     /**
-     * String format (String employeeName, String employeeID,double payRate,double preTaxDeductions,  double ytdEarnings, double ytdTaxesPaid)
+     * String format (String employeeName, String employeeID,double payRate,double preTaxDeductions,  double ytdEarnings, double ytdTaxesPaid).
      */
     private Builder() {
     }
@@ -17,11 +17,11 @@ public final class Builder {
     /**
      * Builds an employee object from a CSV string.
      * <p>
-     * You may end up checking the type of employee (hourly or salary) by looking at the first
+     * You may end up checking the type of employee (hourly or salary) by looking at the first.
      * element of the CSV string. Then building an object specific to that type.
      *
-     * @param csv the CSV string
-     * @return the employee object
+     * @param csv the CSV string.
+     * @return the employee object.
      */
     public static IEmployee buildEmployeeFromCSV(String csv) {
 
@@ -87,8 +87,8 @@ public final class Builder {
     /**
      * Converts a TimeCard from a CSV String.
      *
-     * @param csv csv string
-     * @return a TimeCard object
+     * @param csv csv string.
+     * @return a TimeCard object.
      */
     public static ITimeCard buildTimeCardFromCSV(String csv) {
         String[] parts = csv.split(",");

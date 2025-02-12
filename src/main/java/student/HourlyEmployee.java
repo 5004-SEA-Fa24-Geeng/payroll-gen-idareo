@@ -1,18 +1,18 @@
 package student;
 
 /**
- * HourlyEmployee class is a subclass of the abstract employee
+ * HourlyEmployee class is a subclass of the abstract employee.
  */
 public class HourlyEmployee extends AbstractEmployee {
 
     /**
      *
-     * @param employeeName employeeName
-     * @param employeeID employeeID
-     * @param payRate employee payRate
-     * @param preTaxDeductions Tax deductions before employee is paid
-     * @param ytdEarnings current ytd earnings
-     * @param ytdTaxesPaid current taxes paid
+     * @param employeeName employeeName.
+     * @param employeeID employeeID.
+     * @param payRate employee payRate.
+     * @param preTaxDeductions Tax deductions before employee is paid.
+     * @param ytdEarnings current ytd earnings.
+     * @param ytdTaxesPaid current taxes paid.
      */
     public HourlyEmployee(String employeeName, String employeeID,double payRate,double preTaxDeductions,  double ytdEarnings, double ytdTaxesPaid) {
         super(employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
@@ -21,8 +21,8 @@ public class HourlyEmployee extends AbstractEmployee {
 
     /**
      *
-     * @param hoursWorked hours worked for employee (HOURLY)
-     * @return regularPay + overtimePay if hours <= 40
+     * @param hoursWorked hours worked for employee (HOURLY).
+     * @return regularPay + overtimePay if hours <= 40.
      */
     public double calculateGrossPay(double hoursWorked){
         double overtimeRate = 1.5;

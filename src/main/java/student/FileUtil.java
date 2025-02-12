@@ -35,8 +35,8 @@ public final class FileUtil {
     /**
      * Reads in a text file and returns a list of strings, one for each line in the file.
      * 
-     * @param file the file name
-     * @return a list of strings, one for each line in the file
+     * @param file the file name.
+     * @return a list of strings, one for each line in the file.
      */
     public static List<String> readFileToList(String file) {
         List<String> lines = Collections.emptyList();
@@ -54,8 +54,8 @@ public final class FileUtil {
     /**
      * Writes the lines to the file. Will backup teh file if it exists.
      * 
-     * @param outFile the file name
-     * @param lines the lines to write
+     * @param outFile the file name.
+     * @param lines the lines to write.
      */
     public static void writeFile(String outFile, List<String> lines) {
         writeFile(outFile, lines, true);
@@ -63,10 +63,10 @@ public final class FileUtil {
 
     /**
      * Writes the lines to the file.
-     * 
-     * @param outFile the file name
-     * @param lines the lines to write
-     * @param backup if true, will backup the file if it exists
+     *
+     * @param outFile the file name.
+     * @param lines the lines to write.
+     * @param backup if true, will backup the file if it exists.
      */
     public static void writeFile(String outFile, List<String> lines, boolean backup) {
         if (backup) {

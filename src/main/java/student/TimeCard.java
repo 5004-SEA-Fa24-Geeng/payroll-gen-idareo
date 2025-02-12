@@ -3,17 +3,17 @@ package student;
 public class TimeCard implements ITimeCard {
 
     /**
-     * Employee ID variable
+     * Employee ID variable.
      */
     private String employeeID;
     /**
-     * Hours worked variable
+     * Hours worked variable.
      */
     private double hoursWorked;
 
     /**
-     * @param employeeID  employeeID
-     * @param hoursWorked hoursWorked
+     * @param employeeID  employeeID.
+     * @param hoursWorked hoursWorked.
      */
     public TimeCard(String employeeID, double hoursWorked) {
         this.employeeID = employeeID;
@@ -21,21 +21,21 @@ public class TimeCard implements ITimeCard {
     }
 
     /**
-     * @return employeeID
+     * @return employeeID.
      */
     public String getEmployeeID() {
         return employeeID;
     }
 
     /**
-     * @return hoursWorked
+     * @return hoursWorked.
      */
     public double getHoursWorked() {
         return this.hoursWorked;
     }
 
     /**
-     * @return timeCard as string
+     * @return timeCard as string.
      */
     public String toString() {
         return "TimeCard:\n"

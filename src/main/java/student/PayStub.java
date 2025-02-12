@@ -24,11 +24,11 @@ public class PayStub implements IPayStub {
     private double ytdTaxesPaid;
 
     /**
-     * @param employeeName employeeName
-     * @param netPay       netPay of employee after all deductions
-     * @param taxes        taxes of employee dependent on employeeType
-     * @param ytdEarnings  current ytdEarnings of employees
-     * @param ytdTaxesPaid current ytdTaxesPaid
+     * @param employeeName employeeName.
+     * @param netPay       netPay of employee after all deductions.
+     * @param taxes        taxes of employee dependent on employeeType.
+     * @param ytdEarnings  current ytdEarnings of employees.
+     * @param ytdTaxesPaid current ytdTaxesPaid.
      */
 
     public PayStub(String employeeName, double netPay, double taxes, double ytdEarnings, double ytdTaxesPaid) {
@@ -41,35 +41,35 @@ public class PayStub implements IPayStub {
 
 
     /**
-     * @return employeeName
+     * @return employeeName.
      */
     public String getEmployeeName() {
         return this.employeeName;
     }
 
     /**
-     * @return netPay
+     * @return netPay.
      */
     public double getPay() {
         return this.netPay;
     }
 
     /**
-     * @return taxes
+     * @return taxes.
      */
     public double getTaxesPaid() {
         return this.taxes;
     }
 
     /**
-     * @return ytdEarnings
+     * @return ytdEarnings.
      */
     public double getYtdEarnings() {
         return this.ytdEarnings;
     }
 
     /**
-     * @return ytdTaxesPaid
+     * @return ytdTaxesPaid.
      */
     public double getYtdTaxesPaid() {
         return this.ytdTaxesPaid;
@@ -77,7 +77,7 @@ public class PayStub implements IPayStub {
 
 
     /**
-     * @return payStub as string
+     * @return payStub as string.
      */
 
     public String toCSV() {
