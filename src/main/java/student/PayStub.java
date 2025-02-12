@@ -3,23 +3,23 @@ package student;
 public class PayStub implements IPayStub {
 
     /**
-     * Net pay variable
+     * Net pay variable.
      */
     private double netPay;
     /**
-     * Taxes deducted
+     * Taxes deducted.
      */
     private double taxes;
     /**
-     * Employee Name
+     * Employee Name.
      */
     private String employeeName;
     /**
-     * year-to-date earnings
+     * year-to-date earnings.
      */
     private double ytdEarnings;
     /**
-     * PreTaxDeductions
+     * PreTaxDeductions.
      */
     private double ytdTaxesPaid;
 
