@@ -6,29 +6,27 @@ package student;
 public class HourlyEmployee extends AbstractEmployee {
 
     /**
-     *
-     * @param employeeName employeeName.
-     * @param employeeID employeeID.
-     * @param payRate employee payRate.
+     * @param employeeName     employeeName.
+     * @param employeeID       employeeID.
+     * @param payRate          employee payRate.
      * @param preTaxDeductions Tax deductions before employee is paid.
-     * @param ytdEarnings current ytd earnings.
-     * @param ytdTaxesPaid current taxes paid.
+     * @param ytdEarnings      current ytd earnings.
+     * @param ytdTaxesPaid     current taxes paid.
      */
-    public HourlyEmployee(String employeeName,String employeeID,double payRate,double preTaxDeductions,double ytdEarnings,double ytdTaxesPaid) {
+    public HourlyEmployee(String employeeName, String employeeID, double payRate, double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
         super(employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid, EmployeeType.HOURLY);
 
     }
 
     /**
-     *
      * @param hoursWorked hours worked for employee (HOURLY).
      * @return regularPay + overtimePay if hours <= 40.
      */
-    public double calculateGrossPay(double hoursWorked){
+    public double calculateGrossPay(double hoursWorked) {
         double overtimeRate = 1.5;
-        if (hoursWorked <= 40){
+        if (hoursWorked <= 40) {
             return getPayRate() * hoursWorked;
-        }else{
+        } else {
             double regularPay = 40 * getPayRate();
             double overtimePay = getPayRate() * overtimeRate * (hoursWorked - 40);
             return regularPay + overtimePay;
