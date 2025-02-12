@@ -17,7 +17,6 @@ public class HourlyEmployee extends AbstractEmployee {
     public HourlyEmployee(String employeeName, String employeeID,double payRate,double preTaxDeductions,  double ytdEarnings, double ytdTaxesPaid) {
         super(employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
 
-        this.employeeType = EmployeeType.HOURLY;
     }
 
     /**

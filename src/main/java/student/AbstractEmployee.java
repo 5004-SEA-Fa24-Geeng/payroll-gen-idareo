@@ -4,44 +4,44 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * Abstract Employee class implements IEmployee interface
+ * Abstract Employee class implements IEmployee interface.
  */
 public abstract class AbstractEmployee implements IEmployee {
 
-    /** variable for EmployeeName */
+    /** variable for EmployeeName. */
     private String employeeName;
-    /** variable for EmployeeID*/
+    /** variable for EmployeeID.*/
     private String employeeID;
-    /** variable for employee PayRate */
+    /** variable for employee PayRate. */
     private double payRate;
-    /** variable for employee Type: HOURLY/SALARY */
+    /** variable for employee Type: HOURLY/SALARY. */
     protected EmployeeType employeeType;
-    /** variable for employee PreTaxDeductions */
+    /** variable for employee PreTaxDeductions. */
     private double pretaxDeductions;
-    /** variable for employee ytdEarnings */
+    /** variable for employee ytdEarnings. */
     private double ytdEarnings;
     /**
-     * variable for employee ytdTaxesPaid
+     * variable for employee ytdTaxesPaid.
      */
     private double ytdTaxesPaid;
 
     /**
      *
-     * @param hoursWorked hours worked for employee (HOURLY)
-     * @return defined in subclass based on employeeType
+     * @param hoursWorked hours worked for employee (HOURLY).
+     * @return defined in subclass based on employeeType.
      */
     protected abstract double calculateGrossPay(double hoursWorked);
 
     /**
      *
-     * @param employeeName employeeName
-     * @param employeeID employeeID
-     * @param payRate employee payRate
-     * @param preTaxDeductions preTaxDeductions for employee
-     * @param ytdEarnings ytdEarnings for employee
-     * @param ytdTaxesPaid ytdTaxesPaid for employee
+     * @param employeeName employeeName.
+     * @param employeeID employeeID.
+     * @param payRate employee payRate.
+     * @param preTaxDeductions preTaxDeductions for employee.
+     * @param ytdEarnings ytdEarnings for employee.
+     * @param ytdTaxesPaid ytdTaxesPaid for employee.
      */
-    public AbstractEmployee(String employeeName, String employeeID, double payRate, double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
+    public AbstractEmployee(String employeeName, String employeeID, double payRate, double ytdEarnings, double ytdTaxesPaid, double preTaxDeductions) {
         this.employeeName = employeeName;
         this.employeeID = employeeID;
         this.payRate = payRate;
@@ -52,7 +52,7 @@ public abstract class AbstractEmployee implements IEmployee {
 
     /**
      *
-     * @return employeeName
+     * @return employeeName.
      */
     @Override
     public String getName() {
@@ -61,7 +61,7 @@ public abstract class AbstractEmployee implements IEmployee {
 
     /**
      *
-     * @return employeeID
+     * @return employeeID.
      */
     @Override
     public String getID() {
@@ -70,7 +70,7 @@ public abstract class AbstractEmployee implements IEmployee {
 
     /**
      *
-     * @return payRate
+     * @return payRate.
      */
     @Override
     public double getPayRate() {
@@ -79,7 +79,7 @@ public abstract class AbstractEmployee implements IEmployee {
 
     /**
      *
-     * @return employeeType
+     * @return employeeType.
      */
     @Override
     public String getEmployeeType() {
@@ -88,7 +88,7 @@ public abstract class AbstractEmployee implements IEmployee {
 
     /**
      *
-     * @return preTaxDeductions
+     * @return preTaxDeductions.
      */
     @Override
     public double getPretaxDeductions() {
@@ -97,7 +97,7 @@ public abstract class AbstractEmployee implements IEmployee {
 
     /**
      *
-     * @return ytdEarnings
+     * @return ytdEarnings.
      */
     @Override
     public double getYTDEarnings() {
@@ -106,7 +106,7 @@ public abstract class AbstractEmployee implements IEmployee {
 
     /**
      *
-     * @return ytdTaxesPaid
+     * @return ytdTaxesPaid.
      */
     @Override
     public double getYTDTaxesPaid() {
@@ -115,7 +115,7 @@ public abstract class AbstractEmployee implements IEmployee {
 
     /**
      *
-     * @return employee as string
+     * @return employee as string.
      */
     @Override
     public String toCSV() {
@@ -126,9 +126,9 @@ public abstract class AbstractEmployee implements IEmployee {
 
     /**
      *
-     * @param hoursWorked the hours worked for the pay period
+     * @param hoursWorked the hours worked for the pay period.
      *
-     * @return a new PayStub object
+     * @return a new PayStub object.
      */
     @Override
     public IPayStub runPayroll(double hoursWorked) {
