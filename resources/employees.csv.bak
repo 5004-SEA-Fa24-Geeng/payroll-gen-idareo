@@ -1,0 +1,9 @@
+employee_type,name,ID,payRate,pretaxDeductions,YTDEarnings,YTDTaxesPaid
+SALARY,   Nami,   s193, 200000.00, 4591.48, 34792.85, 4983.00
+HOURLY,   Light Yagami,   x101, 25.00, -978.48, 19713.48, 2265.00
+SALARY,   Misa Amane,   x102, 150000.00, 3127.12, 24622.88, 3500.00
+SALARY,   Edward Elric,   f103, 100000.00, 1918.34, 22415.33, 2333.00
+HOURLY,   Alphonse Elric,   f104, 20.00, 0.00, 8000.00, 1812.00
+HOURLY,   Eren Yeager,   a105, 35.00, -509.74, 11850.74, 1359.00
+SALARY,   Mikasa Ackerman,   a106, 120000.00, 2662.92, 20604.08, 2333.00
+SALARY,   Spike Spiegel,   c107, 180000.00, 400.00, 15000.00, 3500.00
