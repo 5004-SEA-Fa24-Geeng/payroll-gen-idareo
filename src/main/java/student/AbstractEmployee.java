@@ -121,8 +121,8 @@ public abstract class AbstractEmployee implements IEmployee {
      */
     @Override
     public String toCSV() {
-        return String.format("%s, %s, %s, %.2f, %.2f, %.2f, %.2f",
-                 this.getEmployeeType(), this.getName(), this.getID(), this.getPayRate(), this.getPretaxDeductions(), this.getYTDEarnings(), this.getYTDTaxesPaid());
+        return String.format("%s,%s,%s,%.2f,%.2f,%.2f,%.2f",
+                 this.getEmployeeType(),this.getName(),this.getID(),this.getPayRate(),this.getPretaxDeductions(),this.getYTDEarnings(),this.getYTDTaxesPaid());
     }
 
 
