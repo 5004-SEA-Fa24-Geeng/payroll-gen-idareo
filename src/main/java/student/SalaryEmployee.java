@@ -11,7 +11,7 @@ public class SalaryEmployee extends AbstractEmployee {
      * @param ytdTaxesPaid     current ytdTaxesPaid.
      */
     public SalaryEmployee(String employeeName, String employeeID, double payRate, double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
-        super(employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid,EmployeeType.SALARY);
+        super(EmployeeType.SALARY,employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
 
     }
 
@@ -20,7 +20,7 @@ public class SalaryEmployee extends AbstractEmployee {
      * @param hoursWorked hours worked for employee (HOURLY).
      * @return calculates grossPay for hourly employee.
      */
-
+    @Override
     public double calculateGrossPay(double hoursWorked) {
         return getPayRate() / 24;
     }
