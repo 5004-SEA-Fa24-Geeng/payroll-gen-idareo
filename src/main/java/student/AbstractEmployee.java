@@ -170,10 +170,10 @@ public abstract class AbstractEmployee implements IEmployee {
         BigDecimal newYtdTaxesPaid = currentYtdTaxesPaid.add(Taxes)
                 .setScale(2, RoundingMode.HALF_UP);
 
-//        ytdEarnings = newYtdEarnings.doubleValue();
-//        ytdTaxesPaid = newYtdTaxesPaid.doubleValue();
+        ytdEarnings = newYtdEarnings.doubleValue();
+        ytdTaxesPaid = newYtdTaxesPaid.doubleValue();
 
 
-        return new PayStub(employeeName, netPay.doubleValue(), Taxes.doubleValue(), newYtdEarnings.doubleValue(), newYtdTaxesPaid.doubleValue());
+        return new PayStub(employeeName, netPay.doubleValue(), Taxes.doubleValue(), ytdEarnings, ytdTaxesPaid);
     }
 }
