@@ -7,10 +7,8 @@ package student;
  * them here to keep the code clean (and to help guide you).
  */
 public final class Builder {
-
     /**
-     * String format (String employeeName, String employeeID,double payRate,double preTaxDeductions,  double ytdEarnings, double ytdTaxesPaid).
-     * public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions)`
+     * builder constructor
      */
     private Builder() {
     }
@@ -31,12 +29,12 @@ public final class Builder {
             throw new IllegalArgumentException("Error: Invalid Input");
         }
 
-        String Type = parts[0].toUpperCase();
+        String type = parts[0].toUpperCase();
         EmployeeType employeeType;
         try {
-            employeeType = EmployeeType.valueOf(Type); // Convert string to enum
+            employeeType = EmployeeType.valueOf(type); // Convert string to enum
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Error: Invalid employee type '" + Type + "' in CSV.");
+            throw new IllegalArgumentException("Error: Invalid employee type '" + type + "' in CSV.");
         }
         String employeeName = parts[1];
         String employeeID = parts[2];
@@ -72,10 +70,10 @@ public final class Builder {
         IEmployee employee;
         switch (employeeType) {
             case HOURLY:
-                employee = new HourlyEmployee(employeeName, employeeID, payRate,ytdEarnings, ytdTaxesPaid, preTaxDeductions);
+                employee = new HourlyEmployee(employeeName, employeeID, payRate, ytdEarnings, ytdTaxesPaid, preTaxDeductions);
                 break;
             case SALARY:
-                employee = new SalaryEmployee(employeeName, employeeID, payRate, ytdEarnings, ytdTaxesPaid,preTaxDeductions);
+                employee = new SalaryEmployee(employeeName, employeeID, payRate, ytdEarnings, ytdTaxesPaid, preTaxDeductions);
                 break;
             default:
                 throw new IllegalArgumentException("Error: Invalid employee type.");

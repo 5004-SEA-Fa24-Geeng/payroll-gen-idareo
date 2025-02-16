@@ -5,7 +5,7 @@ package student;
  */
 public enum EmployeeType {
     /**
-     * Types of employees
+     * Types of employees.
      */
     SALARY, HOURLY
 }

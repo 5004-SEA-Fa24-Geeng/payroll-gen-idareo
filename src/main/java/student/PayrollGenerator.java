@@ -78,9 +78,9 @@ public final class PayrollGenerator {
         for (ITimeCard timeCard : timeCardList) {
             for (IEmployee employee : employees) {
                 if (employee.getID().equals(timeCard.getEmployeeID())) {
-                    IPayStub PayStub = employee.runPayroll(timeCard.getHoursWorked());
-                    if (PayStub != null) {
-                        payStubs.add(PayStub);
+                    IPayStub payStub = employee.runPayroll(timeCard.getHoursWorked());
+                    if (payStub != null) {
+                        payStubs.add(payStub);
                     }
                 }
             }

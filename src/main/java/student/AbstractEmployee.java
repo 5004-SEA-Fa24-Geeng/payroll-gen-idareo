@@ -23,7 +23,7 @@ public abstract class AbstractEmployee implements IEmployee {
     /**
      * variable for employee Type: HOURLY/SALARY.
      */
-    protected EmployeeType employeeType;
+    private EmployeeType employeeType;
     /**
      * variable for employee PreTaxDeductions.
      */
@@ -50,8 +50,7 @@ public abstract class AbstractEmployee implements IEmployee {
      * @param preTaxDeductions preTaxDeductions for employee.
      * @param ytdEarnings      ytdEarnings for employee.
      * @param ytdTaxesPaid     ytdTaxesPaid for employee.
-     *                         employee_type,name,ID,payRate,pretaxDeductions,YTDEarnings,YTDTaxesPaid
-     *                         public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions)`
+     * @param employeeType salary or hourly employee
      */
     public AbstractEmployee(EmployeeType employeeType, String employeeName, String employeeID, double payRate, double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
         this.employeeName = employeeName;
@@ -64,6 +63,11 @@ public abstract class AbstractEmployee implements IEmployee {
         this.employeeType = employeeType;
     }
 
+    /**
+     *
+     * @param hoursWorked hours worked from csv
+     * @return calculateGrossPay(hourly/salary)
+     */
     public double getGrossPay(double hoursWorked) {
         return calculateGrossPay(hoursWorked);
     }
@@ -149,13 +153,13 @@ public abstract class AbstractEmployee implements IEmployee {
         BigDecimal grossPay = BigDecimal.valueOf(getGrossPay(hoursWorked));
 //                .setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal Pay = grossPay.subtract(BigDecimal.valueOf(getPretaxDeductions()));
+        BigDecimal pay = grossPay.subtract(BigDecimal.valueOf(getPretaxDeductions()));
 //                .setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal Taxes = Pay.multiply(new BigDecimal("0.2265"));
+        BigDecimal taxes = pay.multiply(new BigDecimal("0.2265"));
         //.setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal netPay = Pay.subtract(Taxes);
+        BigDecimal netPay = pay.subtract(taxes);
 //                .setScale(2, RoundingMode.HALF_UP);
 
         BigDecimal currentYtdEarnings = BigDecimal.valueOf(getYTDEarnings());
@@ -167,13 +171,13 @@ public abstract class AbstractEmployee implements IEmployee {
         BigDecimal newYtdEarnings = currentYtdEarnings.add(netPay)
                 .setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal newYtdTaxesPaid = currentYtdTaxesPaid.add(Taxes)
+        BigDecimal newYtdTaxesPaid = currentYtdTaxesPaid.add(taxes)
                 .setScale(2, RoundingMode.HALF_UP);
 
         ytdEarnings = newYtdEarnings.doubleValue();
         ytdTaxesPaid = newYtdTaxesPaid.doubleValue();
 
 
-        return new PayStub(employeeName, netPay.doubleValue(), Taxes.doubleValue(), ytdEarnings, ytdTaxesPaid);
+        return new PayStub(employeeName, netPay.doubleValue(), taxes.doubleValue(), ytdEarnings, ytdTaxesPaid);
     }
 }
