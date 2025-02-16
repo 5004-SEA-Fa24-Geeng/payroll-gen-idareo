@@ -85,7 +85,7 @@ public class BuilderTest {
             Builder.buildTimeCardFromCSV(csv);
         });
 
-        assertEquals("Error: Hours worked cannot be negative.", exception.getMessage());
+        assertEquals("Error:Hours worked cannot be less than 0.", exception.getMessage());
     }
 
     @Test
