@@ -12,8 +12,8 @@ public class EmployeeTest {
 
     @BeforeEach
     public void setUp() {
-        hourlyEmployee = new HourlyEmployee( "Luffy","s192",30.00,9518.66,0.00,41566.34);
-        salaryEmployee = new SalaryEmployee("Nami","s193",200000.00,1000.00,22689.33,6644.00);
+        hourlyEmployee = new HourlyEmployee("Luffy", "s192", 30.00, 9518.66, 0.00, 41566.34);
+        salaryEmployee = new SalaryEmployee("Nami", "s193", 200000.00, 1000.00, 22689.33, 6644.00);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class EmployeeTest {
         assertEquals(200000.00, salaryEmployee.getPayRate());
         assertEquals(6644.00, salaryEmployee.getPretaxDeductions());
         assertEquals(1000.00, salaryEmployee.getYTDEarnings());
-        assertEquals(22689.33,salaryEmployee.getYTDTaxesPaid());
+        assertEquals(22689.33, salaryEmployee.getYTDTaxesPaid());
     }
 
     @Test
@@ -55,9 +55,9 @@ public class EmployeeTest {
     }
 
     @Test
-    public void salaryEmployeeCalculateGrossPay(){
-        double expectedGrossPay = salaryEmployee.getPayRate()/24;
-        assertEquals(expectedGrossPay, salaryEmployee.calculateGrossPay(0),0.01);
+    public void salaryEmployeeCalculateGrossPay() {
+        double expectedGrossPay = salaryEmployee.getPayRate() / 24;
+        assertEquals(expectedGrossPay, salaryEmployee.calculateGrossPay(0), 0.01);
     }
 
 

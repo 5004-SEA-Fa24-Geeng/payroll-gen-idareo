@@ -9,10 +9,10 @@ public class SalaryEmployee extends AbstractEmployee {
      * @param preTaxDeductions preTaxDeductions.
      * @param ytdEarnings      current ytdEarnings.
      * @param ytdTaxesPaid     current ytdTaxesPaid.
-     * public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions)`
+     *                         public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions)`
      */
-    public SalaryEmployee(String employeeName, String employeeID, double payRate, double ytdEarnings, double ytdTaxesPaid,double preTaxDeductions) {
-        super(EmployeeType.SALARY,employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
+    public SalaryEmployee(String employeeName, String employeeID, double payRate, double ytdEarnings, double ytdTaxesPaid, double preTaxDeductions) {
+        super(EmployeeType.SALARY, employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
 
     }
 

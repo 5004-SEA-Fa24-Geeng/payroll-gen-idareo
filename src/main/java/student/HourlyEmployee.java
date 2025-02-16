@@ -12,10 +12,10 @@ public class HourlyEmployee extends AbstractEmployee {
      * @param preTaxDeductions Tax deductions before employee is paid.
      * @param ytdEarnings      current ytd earnings.
      * @param ytdTaxesPaid     current taxes paid.
-     * public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions)`
+     *                         public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions)`
      */
-    public HourlyEmployee(String employeeName, String employeeID, double payRate,double ytdEarnings, double ytdTaxesPaid,double preTaxDeductions) {
-        super(EmployeeType.HOURLY,employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
+    public HourlyEmployee(String employeeName, String employeeID, double payRate, double ytdEarnings, double ytdTaxesPaid, double preTaxDeductions) {
+        super(EmployeeType.HOURLY, employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
 
     }
 
@@ -25,12 +25,12 @@ public class HourlyEmployee extends AbstractEmployee {
      */
     @Override
     public double calculateGrossPay(double hoursWorked) {
-        if(hoursWorked < 0){
+        if (hoursWorked < 0) {
             return 0;
         }
         double overtimeRate = 1.5;
         if (hoursWorked <= 40) {
-            return  getPayRate() * hoursWorked;
+            return getPayRate() * hoursWorked;
         } else {
             double regularPay = 40 * getPayRate();
             double overtimePay = getPayRate() * overtimeRate * (hoursWorked - 40);
