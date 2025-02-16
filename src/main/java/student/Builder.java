@@ -105,7 +105,6 @@ public final class Builder {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Error!");
         }
-
         if (hoursWorked < 0) {
             throw new IllegalArgumentException("Error:Hours worked cannot be less than 0.");
         }
