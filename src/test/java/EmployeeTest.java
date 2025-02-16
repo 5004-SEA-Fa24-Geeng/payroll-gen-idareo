@@ -12,8 +12,8 @@ public class EmployeeTest {
 
     @BeforeEach
     public void setUp() {
-        hourlyEmployee = new HourlyEmployee( "Luffy",  "s192", 30.00,41566.34, 9518.66,0.0 );
-        salaryEmployee = new SalaryEmployee("Nami",  "s193", 200000.00, 39706.33,11627.00,1000.00);
+        hourlyEmployee = new HourlyEmployee( "Luffy","s192",30.00, 0.00, 41566.34, 9518.66);
+        salaryEmployee = new SalaryEmployee("Nami","s193",200000.00,1000.00,22689.33,6644.00);
     }
 
     @Test
@@ -32,13 +32,13 @@ public class EmployeeTest {
         assertEquals("s193", salaryEmployee.getID());
         assertEquals(200000.00, salaryEmployee.getPayRate());
         assertEquals(1000.00, salaryEmployee.getPretaxDeductions());
-        assertEquals(39706.33, salaryEmployee.getYTDEarnings());
-        assertEquals(11627.00,salaryEmployee.getYTDTaxesPaid());
+        assertEquals(22689.33, salaryEmployee.getYTDEarnings());
+        assertEquals(6644.00,salaryEmployee.getYTDTaxesPaid());
     }
 
     @Test
     public void toCSV() {
-        String expectedCSV = "HOURLY, Luffy, s192, 30.00, 0.00, 41566.34, 9518.66";
+        String expectedCSV = "HOURLY,Luffy,s192,30.00,0.00,41566.34,9518.66";
         assertEquals(expectedCSV, hourlyEmployee.toCSV());
 
     }
