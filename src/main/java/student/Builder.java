@@ -8,7 +8,7 @@ package student;
  */
 public final class Builder {
     /**
-     * builder constructor
+     * builder constructor.
      */
     private Builder() {
     }
@@ -70,10 +70,12 @@ public final class Builder {
         IEmployee employee;
         switch (employeeType) {
             case HOURLY:
-                employee = new HourlyEmployee(employeeName, employeeID, payRate, ytdEarnings, ytdTaxesPaid, preTaxDeductions);
+                employee = new HourlyEmployee(employeeName, employeeID, payRate,
+                        ytdEarnings, ytdTaxesPaid, preTaxDeductions);
                 break;
             case SALARY:
-                employee = new SalaryEmployee(employeeName, employeeID, payRate, ytdEarnings, ytdTaxesPaid, preTaxDeductions);
+                employee = new SalaryEmployee(employeeName, employeeID, payRate,
+                        ytdEarnings, ytdTaxesPaid, preTaxDeductions);
                 break;
             default:
                 throw new IllegalArgumentException("Error: Invalid employee type.");

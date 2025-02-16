@@ -81,6 +81,7 @@ public class PayStub implements IPayStub {
      */
 
     public String toCSV() {
-        return String.format("%s,%.2f,%.2f,%.2f,%.2f", this.getEmployeeName(), this.getPay(), this.getTaxesPaid(), this.getYtdEarnings(), this.getYtdTaxesPaid());
+        return String.format("%s,%.2f,%.2f,%.2f,%.2f", this.getEmployeeName(), this.getPay(),
+                this.getTaxesPaid(), this.getYtdEarnings(), this.getYtdTaxesPaid());
     }
 }

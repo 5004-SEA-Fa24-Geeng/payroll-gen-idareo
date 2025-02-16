@@ -50,9 +50,10 @@ public abstract class AbstractEmployee implements IEmployee {
      * @param preTaxDeductions preTaxDeductions for employee.
      * @param ytdEarnings      ytdEarnings for employee.
      * @param ytdTaxesPaid     ytdTaxesPaid for employee.
-     * @param employeeType salary or hourly employee
+     * @param employeeType     salary or hourly employee
      */
-    public AbstractEmployee(EmployeeType employeeType, String employeeName, String employeeID, double payRate, double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
+    public AbstractEmployee(EmployeeType employeeType, String employeeName, String employeeID, double payRate,
+                            double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
         this.employeeName = employeeName;
         this.employeeID = employeeID;
         this.payRate = payRate;
@@ -64,9 +65,8 @@ public abstract class AbstractEmployee implements IEmployee {
     }
 
     /**
-     *
      * @param hoursWorked hours worked from csv
-     * @return calculateGrossPay(hourly/salary)
+     * @return calculateGrossPay(hourly / salary)
      */
     public double getGrossPay(double hoursWorked) {
         return calculateGrossPay(hoursWorked);
@@ -134,7 +134,8 @@ public abstract class AbstractEmployee implements IEmployee {
     @Override
     public String toCSV() {
         return String.format("%s,%s,%s,%.2f,%.2f,%.2f,%.2f",
-                this.getEmployeeType(), this.getName(), this.getID(), this.getPayRate(), this.getPretaxDeductions(), this.getYTDEarnings(), this.getYTDTaxesPaid());
+                this.getEmployeeType(), this.getName(), this.getID(), this.getPayRate(),
+                this.getPretaxDeductions(), this.getYTDEarnings(), this.getYTDTaxesPaid());
     }
 
     /**
