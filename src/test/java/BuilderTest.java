@@ -12,13 +12,13 @@ public class BuilderTest {
 
     @BeforeEach
     public void setUp() {
-        hourlyEmployee = new HourlyEmployee("Luffy", "s192", 30.00, 0.00, 41566.34, 9518.66);
-        salaryEmployee = new SalaryEmployee("Nami", "s193", 200000.00, 1000.00, 39706.33, 11627.00);
+        hourlyEmployee = new HourlyEmployee( "Luffy","s192",30.00,9518.66,0.00,41566.34);
+        salaryEmployee = new SalaryEmployee("Nami","s193",200000.00,1000.00,22689.33,6644.00);
     }
 
     @Test
     public void buildEmployeeFromCSVHourly() {
-        String csv = "HOURLY,Luffy,s192,30.00,0.00,41566.34,9518.66";
+        String csv = "HOURLY,Luffy,s192,30.00,41566.34,9518.66,0.00";
         IEmployee employee = Builder.buildEmployeeFromCSV(csv);
 
         assertEquals(hourlyEmployee.getName(), ((HourlyEmployee) employee).getName());
@@ -32,7 +32,7 @@ public class BuilderTest {
 
     @Test
     public void buildEmployeeFromCSVSalary() {
-        String csv = "SALARY,Nami,s193, 200000.00, 1000.00, 39706.33, 11627.00";
+        String csv = "SALARY,Nami,s193,200000.00,6644.00,1000.00,22689.33";
         IEmployee employee = Builder.buildEmployeeFromCSV(csv);
 
         assertEquals(salaryEmployee.getName(), ((SalaryEmployee) employee).getName());

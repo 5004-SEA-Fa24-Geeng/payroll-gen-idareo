@@ -72,10 +72,10 @@ public final class Builder {
         IEmployee employee;
         switch (employeeType) {
             case HOURLY:
-                employee = new HourlyEmployee(employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
+                employee = new HourlyEmployee(employeeName, employeeID, payRate,ytdEarnings, ytdTaxesPaid, preTaxDeductions);
                 break;
             case SALARY:
-                employee = new SalaryEmployee(employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
+                employee = new SalaryEmployee(employeeName, employeeID, payRate, ytdEarnings, ytdTaxesPaid,preTaxDeductions);
                 break;
             default:
                 throw new IllegalArgumentException("Error: Invalid employee type.");
