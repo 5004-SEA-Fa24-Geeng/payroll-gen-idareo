@@ -10,6 +10,7 @@ public final class Builder {
 
     /**
      * String format (String employeeName, String employeeID,double payRate,double preTaxDeductions,  double ytdEarnings, double ytdTaxesPaid).
+     * public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions)`
      */
     private Builder() {
     }
@@ -47,21 +48,21 @@ public final class Builder {
             throw new IllegalArgumentException("Error: " + parts[3] + " is not a valid number.");
         }
 
-        double preTaxDeductions = Double.parseDouble(parts[4]);
+        double preTaxDeductions;
         try {
             preTaxDeductions = Double.parseDouble(parts[4]);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Error: " + parts[4] + " is not a valid number.");
         }
 
-        double ytdEarnings = Double.parseDouble(parts[5]);
+        double ytdEarnings;
         try {
             ytdEarnings = Double.parseDouble(parts[5]);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Error: " + parts[5] + " is not a valid number.");
         }
 
-        double ytdTaxesPaid = Double.parseDouble(parts[6]);
+        double ytdTaxesPaid;
         try {
             ytdTaxesPaid = Double.parseDouble(parts[6]);
         } catch (NumberFormatException e) {
