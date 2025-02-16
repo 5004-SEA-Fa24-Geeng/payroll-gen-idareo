@@ -26,7 +26,7 @@ public class HourlyEmployee extends AbstractEmployee {
     public double calculateGrossPay(double hoursWorked) {
         double overtimeRate = 1.5;
         if (hoursWorked <= 40) {
-            return getPayRate() * hoursWorked;
+            return  getPayRate() * hoursWorked;
         } else {
             double regularPay = 40 * getPayRate();
             double overtimePay = getPayRate() * overtimeRate * (hoursWorked - 40);

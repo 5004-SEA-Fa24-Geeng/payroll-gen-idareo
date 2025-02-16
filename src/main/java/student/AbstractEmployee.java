@@ -41,7 +41,7 @@ public abstract class AbstractEmployee implements IEmployee {
      * @param ytdEarnings ytdEarnings for employee.
      * @param ytdTaxesPaid ytdTaxesPaid for employee.
      */
-    public AbstractEmployee(EmployeeType employeeType,String employeeName, String employeeID, double payRate, double ytdEarnings, double ytdTaxesPaid, double preTaxDeductions) {
+    public AbstractEmployee(EmployeeType employeeType,String employeeName, String employeeID, double payRate,  double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
         this.employeeName = employeeName;
         this.employeeID = employeeID;
         this.payRate = payRate;
@@ -50,6 +50,10 @@ public abstract class AbstractEmployee implements IEmployee {
         this.ytdTaxesPaid = ytdTaxesPaid;
 
         this.employeeType = employeeType;
+    }
+
+    public double getGrossPay(double hoursWorked) {
+        return calculateGrossPay(hoursWorked);
     }
 
     /**
@@ -125,11 +129,12 @@ public abstract class AbstractEmployee implements IEmployee {
                  this.getEmployeeType(),this.getName(),this.getID(),this.getPayRate(),this.getPretaxDeductions(),this.getYTDEarnings(),this.getYTDTaxesPaid());
     }
 
-
     /**
      *
      * @param hoursWorked the hours worked for the pay period.
-     *
+     *tax = 22.65%, calculated with net_pay(after pretax deductions),
+     * hourlyEmployee, payRate*hoursWorked for first 40,then payRate*1.5*(hoursWorked-40)
+     *salaryEmployees - payRate/24
      * @return a new PayStub object.
      */
     @Override
@@ -137,26 +142,33 @@ public abstract class AbstractEmployee implements IEmployee {
         if (hoursWorked < 0) {
             return null;
         }
+        System.out.println("HERE IS GROSS PAY");
+        System.out.println(getGrossPay(hoursWorked));
 
-        BigDecimal grossPay = BigDecimal.valueOf(calculateGrossPay(hoursWorked));
-                //.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal grossPay = BigDecimal.valueOf(getGrossPay(hoursWorked))
+                .setScale(2, RoundingMode.HALF_UP);
+        System.out.println("HERE IS PRETAX");
+        System.out.println(getPretaxDeductions());
 
-        BigDecimal Pay = grossPay.subtract(BigDecimal.valueOf(pretaxDeductions));
-                //.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal Pay = grossPay.subtract(BigDecimal.valueOf(getPretaxDeductions()))
+                .setScale(2, RoundingMode.HALF_UP);
+        System.out.println("HERE IS PAY");
+        System.out.println(Pay);
 
-        BigDecimal Taxes = Pay.multiply(new BigDecimal("0.2265"));
-                //.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal Taxes = Pay.multiply(new BigDecimal("0.2265"))
+                .setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal netPay = Pay.subtract(Taxes);
-                //.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal netPay = Pay.subtract(Taxes)
+                .setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal currentYtdEarnings = BigDecimal.valueOf(ytdEarnings);
-                //.setScale(2, RoundingMode.HALF_UP);
-        BigDecimal currentYtdTaxesPaid = BigDecimal.valueOf(ytdTaxesPaid);
-                //.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal currentYtdEarnings = BigDecimal.valueOf(ytdEarnings)
+                .setScale(2, RoundingMode.HALF_UP);
+
+        BigDecimal currentYtdTaxesPaid = BigDecimal.valueOf(ytdTaxesPaid)
+                .setScale(2, RoundingMode.HALF_UP);
 
         BigDecimal newYtdEarnings = currentYtdEarnings.add(netPay)
-                .setScale(2, RoundingMode.DOWN);
+                .setScale(2, RoundingMode.HALF_UP);
 
         BigDecimal newYtdTaxesPaid = currentYtdTaxesPaid.add(Taxes)
                 .setScale(2, RoundingMode.HALF_UP);
