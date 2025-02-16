@@ -141,7 +141,7 @@ public abstract class AbstractEmployee implements IEmployee {
      */
     @Override
     public IPayStub runPayroll(double hoursWorked) {
-        if (hoursWorked < 0) {
+        if (hoursWorked <= 0) {
             return null;
         }
 
