@@ -149,17 +149,8 @@ public abstract class AbstractEmployee implements IEmployee {
         BigDecimal grossPay = BigDecimal.valueOf(getGrossPay(hoursWorked))
                 .setScale(2, RoundingMode.HALF_UP);
 
-        System.out.println("GROSS PAY");
-        System.out.println(grossPay);
-
-        System.out.println("PRETAX DEDUCTIONS");
-        System.out.println(getPretaxDeductions());
-
         BigDecimal Pay = grossPay.subtract(BigDecimal.valueOf(getPretaxDeductions()))
                 .setScale(2, RoundingMode.HALF_UP);
-
-        System.out.println("PAY");
-        System.out.println(Pay);
 
         BigDecimal Taxes = Pay.multiply(new BigDecimal("0.2265"));
         //.setScale(2, RoundingMode.HALF_UP);
@@ -167,28 +158,22 @@ public abstract class AbstractEmployee implements IEmployee {
         BigDecimal netPay = Pay.subtract(Taxes)
                 .setScale(2, RoundingMode.HALF_UP);
 
-        System.out.println("NET PAY");
-        System.out.println(netPay);
-
         BigDecimal currentYtdEarnings = BigDecimal.valueOf(getYTDEarnings())
                 .setScale(2, RoundingMode.HALF_UP);
-
-        System.out.println("YTD EARNINGS");
-        System.out.println(currentYtdEarnings);
 
         BigDecimal currentYtdTaxesPaid = BigDecimal.valueOf(getYTDTaxesPaid())
                 .setScale(2, RoundingMode.HALF_UP);
 
-//        BigDecimal newYtdEarnings = currentYtdEarnings.add(netPay)
-//                .setScale(2, RoundingMode.HALF_UP);
-//
-//        BigDecimal newYtdTaxesPaid = currentYtdTaxesPaid.add(Taxes)
-//                .setScale(2, RoundingMode.HALF_UP);
+        BigDecimal newYtdEarnings = currentYtdEarnings.add(netPay)
+                .setScale(2, RoundingMode.HALF_UP);
 
-        ytdEarnings = currentYtdEarnings.doubleValue();
-        ytdTaxesPaid = currentYtdTaxesPaid.doubleValue();
+        BigDecimal newYtdTaxesPaid = currentYtdTaxesPaid.add(Taxes)
+                .setScale(2, RoundingMode.HALF_UP);
+
+//        ytdEarnings = newYtdEarnings.doubleValue();
+//        ytdTaxesPaid = newYtdTaxesPaid.doubleValue();
 
 
-        return new PayStub(employeeName, netPay.doubleValue(), Taxes.doubleValue(), currentYtdEarnings.doubleValue(), currentYtdTaxesPaid.doubleValue());
+        return new PayStub(employeeName, netPay.doubleValue(), Taxes.doubleValue(), newYtdEarnings.doubleValue(), newYtdTaxesPaid.doubleValue());
     }
 }
