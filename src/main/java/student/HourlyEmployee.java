@@ -25,6 +25,9 @@ public class HourlyEmployee extends AbstractEmployee {
      */
     @Override
     public double calculateGrossPay(double hoursWorked) {
+        if(hoursWorked < 0){
+            return 0;
+        }
         double overtimeRate = 1.5;
         if (hoursWorked <= 40) {
             return  getPayRate() * hoursWorked;

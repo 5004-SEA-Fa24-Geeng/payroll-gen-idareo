@@ -18,7 +18,7 @@ public class SalaryEmployee extends AbstractEmployee {
 
 
     /**
-     * @param hoursWorked hours worked for employee (HOURLY).
+     * @param hoursWorked hours worked for employee.
      * @return calculates grossPay for hourly employee.
      */
     @Override

@@ -8,17 +8,29 @@ import java.math.RoundingMode;
  */
 public abstract class AbstractEmployee implements IEmployee {
 
-    /** variable for EmployeeName. */
+    /**
+     * variable for EmployeeName.
+     */
     private String employeeName;
-    /** variable for EmployeeID.*/
+    /**
+     * variable for EmployeeID.
+     */
     private String employeeID;
-    /** variable for employee PayRate. */
+    /**
+     * variable for employee PayRate.
+     */
     private double payRate;
-    /** variable for employee Type: HOURLY/SALARY. */
+    /**
+     * variable for employee Type: HOURLY/SALARY.
+     */
     protected EmployeeType employeeType;
-    /** variable for employee PreTaxDeductions. */
+    /**
+     * variable for employee PreTaxDeductions.
+     */
     private double pretaxDeductions;
-    /** variable for employee ytdEarnings. */
+    /**
+     * variable for employee ytdEarnings.
+     */
     private double ytdEarnings;
     /**
      * variable for employee ytdTaxesPaid.
@@ -26,24 +38,22 @@ public abstract class AbstractEmployee implements IEmployee {
     private double ytdTaxesPaid;
 
     /**
-     *
      * @param hoursWorked hours worked for employee (HOURLY).
      * @return defined in subclass based on employeeType.
      */
     protected abstract double calculateGrossPay(double hoursWorked);
 
     /**
-     *
-     * @param employeeName employeeName.
-     * @param employeeID employeeID.
-     * @param payRate employee payRate.
+     * @param employeeName     employeeName.
+     * @param employeeID       employeeID.
+     * @param payRate          employee payRate.
      * @param preTaxDeductions preTaxDeductions for employee.
-     * @param ytdEarnings ytdEarnings for employee.
-     * @param ytdTaxesPaid ytdTaxesPaid for employee.
-     * employee_type,name,ID,payRate,pretaxDeductions,YTDEarnings,YTDTaxesPaid
-     *public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions)`
+     * @param ytdEarnings      ytdEarnings for employee.
+     * @param ytdTaxesPaid     ytdTaxesPaid for employee.
+     *                         employee_type,name,ID,payRate,pretaxDeductions,YTDEarnings,YTDTaxesPaid
+     *                         public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions)`
      */
-    public AbstractEmployee(EmployeeType employeeType,String employeeName, String employeeID, double payRate,double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
+    public AbstractEmployee(EmployeeType employeeType, String employeeName, String employeeID, double payRate, double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
         this.employeeName = employeeName;
         this.employeeID = employeeID;
         this.payRate = payRate;
@@ -59,7 +69,6 @@ public abstract class AbstractEmployee implements IEmployee {
     }
 
     /**
-     *
      * @return employeeName.
      */
     @Override
@@ -68,7 +77,6 @@ public abstract class AbstractEmployee implements IEmployee {
     }
 
     /**
-     *
      * @return employeeID.
      */
     @Override
@@ -77,7 +85,6 @@ public abstract class AbstractEmployee implements IEmployee {
     }
 
     /**
-     *
      * @return payRate.
      */
     @Override
@@ -86,7 +93,6 @@ public abstract class AbstractEmployee implements IEmployee {
     }
 
     /**
-     *
      * @return employeeType.
      */
     @Override
@@ -95,7 +101,6 @@ public abstract class AbstractEmployee implements IEmployee {
     }
 
     /**
-     *
      * @return preTaxDeductions.
      */
     @Override
@@ -104,7 +109,6 @@ public abstract class AbstractEmployee implements IEmployee {
     }
 
     /**
-     *
      * @return ytdEarnings.
      */
     @Override
@@ -113,7 +117,6 @@ public abstract class AbstractEmployee implements IEmployee {
     }
 
     /**
-     *
      * @return ytdTaxesPaid.
      */
     @Override
@@ -122,21 +125,19 @@ public abstract class AbstractEmployee implements IEmployee {
     }
 
     /**
-     *
      * @return employee as string.
      */
     @Override
     public String toCSV() {
         return String.format("%s,%s,%s,%.2f,%.2f,%.2f,%.2f",
-                 this.getEmployeeType(),this.getName(),this.getID(),this.getPayRate(),this.getPretaxDeductions(),this.getYTDEarnings(),this.getYTDTaxesPaid());
+                this.getEmployeeType(), this.getName(), this.getID(), this.getPayRate(), this.getPretaxDeductions(), this.getYTDEarnings(), this.getYTDTaxesPaid());
     }
 
     /**
-     *
      * @param hoursWorked the hours worked for the pay period.
-     *tax = 22.65%, calculated with net_pay(after pretax deductions),
-     * hourlyEmployee, payRate*hoursWorked for first 40,then payRate*1.5*(hoursWorked-40)
-     *salaryEmployees - payRate/24
+     *                    tax = 22.65%, calculated with net_pay(after pretax deductions),
+     *                    hourlyEmployee, payRate*hoursWorked for first 40,then payRate*1.5*(hoursWorked-40)
+     *                    salaryEmployees - payRate/24
      * @return a new PayStub object.
      */
     @Override
@@ -148,11 +149,17 @@ public abstract class AbstractEmployee implements IEmployee {
         BigDecimal grossPay = BigDecimal.valueOf(getGrossPay(hoursWorked))
                 .setScale(2, RoundingMode.HALF_UP);
 
+        System.out.println("GROSS PAY");
+        System.out.println(grossPay);
+
         BigDecimal Pay = grossPay.subtract(BigDecimal.valueOf(getPretaxDeductions()))
                 .setScale(2, RoundingMode.HALF_UP);
 
+        System.out.println("PRETAX DEDUCTIONS");
+        System.out.println(Pay);
+
         BigDecimal Taxes = Pay.multiply(new BigDecimal("0.2265"));
-                //.setScale(2, RoundingMode.HALF_UP);
+        //.setScale(2, RoundingMode.HALF_UP);
 
         BigDecimal netPay = Pay.subtract(Taxes)
                 .setScale(2, RoundingMode.HALF_UP);
