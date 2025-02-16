@@ -157,15 +157,22 @@ public abstract class AbstractEmployee implements IEmployee {
         BigDecimal netPay = Pay.subtract(Taxes)
                 .setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal currentYtdEarnings = BigDecimal.valueOf(getYTDEarnings())
-                .setScale(3, RoundingMode.HALF_UP);
-        BigDecimal currentYtdTaxesPaid = BigDecimal.valueOf(getYTDTaxesPaid())
-                .setScale(3, RoundingMode.HALF_UP);
+        BigDecimal currentYtdEarnings = BigDecimal.valueOf(ytdEarnings)
+                .setScale(2, RoundingMode.HALF_UP);
 
-//        ytdEarnings = currentYtdEarnings.doubleValue();
-//        ytdTaxesPaid = currentYtdTaxesPaid.doubleValue();
+        BigDecimal currentYtdTaxesPaid = BigDecimal.valueOf(ytdTaxesPaid)
+                .setScale(2, RoundingMode.HALF_UP);
+
+        BigDecimal newYtdEarnings = currentYtdEarnings.add(netPay)
+                .setScale(2, RoundingMode.HALF_UP);
+
+        BigDecimal newYtdTaxesPaid = currentYtdTaxesPaid.add(Taxes)
+                .setScale(2, RoundingMode.HALF_UP);
+
+        ytdEarnings = newYtdEarnings.doubleValue();
+        ytdTaxesPaid = newYtdTaxesPaid.doubleValue();
 
 
-        return new PayStub(employeeName, netPay.doubleValue(), Taxes.doubleValue(), currentYtdEarnings.doubleValue(), currentYtdTaxesPaid.doubleValue());
+        return new PayStub(employeeName, netPay.doubleValue(), Taxes.doubleValue(), ytdEarnings, ytdTaxesPaid);
     }
 }
