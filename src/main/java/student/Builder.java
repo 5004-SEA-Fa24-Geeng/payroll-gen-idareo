@@ -107,7 +107,7 @@ public final class Builder {
         }
 
         if (hoursWorked < 0) {
-            throw new IllegalArgumentException("Error: Hours worked cannot be negative.");
+            throw new IllegalArgumentException("Error:Hours worked cannot be less than 0.");
         }
         return new TimeCard(employeeID, hoursWorked);
     }
