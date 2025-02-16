@@ -25,7 +25,7 @@ public class PayStubTest {
 
     @Test
     public void testToCSV() {
-        String expectedCSV = " John Doe, 5000.00, 1000.00, 100000.00, 20000.00";
+        String expectedCSV = "John Doe,5000.00,1000.00,100000.00,20000.00";
         assertEquals(expectedCSV, payStub.toCSV());
     }
 
