@@ -142,39 +142,32 @@ public abstract class AbstractEmployee implements IEmployee {
         if (hoursWorked < 0) {
             return null;
         }
-        System.out.println("HERE IS GROSS PAY");
-        System.out.println(getGrossPay(hoursWorked));
 
-        BigDecimal grossPay = BigDecimal.valueOf(getGrossPay(hoursWorked))
+        BigDecimal grossPay = BigDecimal.valueOf(getGrossPay(hoursWorked));
+                //.setScale(2, RoundingMode.HALF_UP);
+
+        BigDecimal Pay = grossPay.subtract(BigDecimal.valueOf(getPretaxDeductions()));
+                //.setScale(2, RoundingMode.HALF_UP);
+
+        BigDecimal Taxes = Pay.multiply(new BigDecimal("0.2265"));
+                //.setScale(2, RoundingMode.HALF_UP);
+
+        BigDecimal netPay = Pay.subtract(Taxes);
+                //.setScale(2, RoundingMode.HALF_UP);
+
+        BigDecimal currentYtdEarnings = BigDecimal.valueOf(getYTDEarnings())
                 .setScale(2, RoundingMode.HALF_UP);
-        System.out.println("HERE IS PRETAX");
-        System.out.println(getPretaxDeductions());
-
-        BigDecimal Pay = grossPay.subtract(BigDecimal.valueOf(getPretaxDeductions()))
-                .setScale(2, RoundingMode.HALF_UP);
-        System.out.println("HERE IS PAY");
-        System.out.println(Pay);
-
-        BigDecimal Taxes = Pay.multiply(new BigDecimal("0.2265"))
-                .setScale(2, RoundingMode.HALF_UP);
-
-        BigDecimal netPay = Pay.subtract(Taxes)
-                .setScale(2, RoundingMode.HALF_UP);
-
-        BigDecimal currentYtdEarnings = BigDecimal.valueOf(ytdEarnings)
-                .setScale(2, RoundingMode.HALF_UP);
-
-        BigDecimal currentYtdTaxesPaid = BigDecimal.valueOf(ytdTaxesPaid)
+        BigDecimal currentYtdTaxesPaid = BigDecimal.valueOf(getYTDTaxesPaid())
                 .setScale(2, RoundingMode.HALF_UP);
 
         BigDecimal newYtdEarnings = currentYtdEarnings.add(netPay)
-                .setScale(2, RoundingMode.HALF_UP);
+                .setScale(2, RoundingMode.DOWN);
 
         BigDecimal newYtdTaxesPaid = currentYtdTaxesPaid.add(Taxes)
                 .setScale(2, RoundingMode.HALF_UP);
 
-        ytdEarnings = newYtdEarnings.doubleValue();
-        ytdTaxesPaid = newYtdTaxesPaid.doubleValue();
+        ytdEarnings = currentYtdEarnings.doubleValue();
+        ytdTaxesPaid = currentYtdTaxesPaid.doubleValue();
 
 
         return new PayStub(employeeName, netPay.doubleValue(), Taxes.doubleValue(), ytdEarnings, ytdTaxesPaid);
