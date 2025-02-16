@@ -146,23 +146,23 @@ public abstract class AbstractEmployee implements IEmployee {
             return null;
         }
 
-        BigDecimal grossPay = BigDecimal.valueOf(getGrossPay(hoursWorked))
-                .setScale(2, RoundingMode.HALF_UP);
+        BigDecimal grossPay = BigDecimal.valueOf(getGrossPay(hoursWorked));
+//                .setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal Pay = grossPay.subtract(BigDecimal.valueOf(getPretaxDeductions()))
-                .setScale(2, RoundingMode.HALF_UP);
+        BigDecimal Pay = grossPay.subtract(BigDecimal.valueOf(getPretaxDeductions()));
+//                .setScale(2, RoundingMode.HALF_UP);
 
         BigDecimal Taxes = Pay.multiply(new BigDecimal("0.2265"));
         //.setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal netPay = Pay.subtract(Taxes)
-                .setScale(2, RoundingMode.HALF_UP);
+        BigDecimal netPay = Pay.subtract(Taxes);
+//                .setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal currentYtdEarnings = BigDecimal.valueOf(getYTDEarnings())
-                .setScale(2, RoundingMode.HALF_UP);
+        BigDecimal currentYtdEarnings = BigDecimal.valueOf(getYTDEarnings());
+//                .setScale(2, RoundingMode.HALF_UP);
 
-        BigDecimal currentYtdTaxesPaid = BigDecimal.valueOf(getYTDTaxesPaid())
-                .setScale(2, RoundingMode.HALF_UP);
+        BigDecimal currentYtdTaxesPaid = BigDecimal.valueOf(getYTDTaxesPaid());
+//                .setScale(2, RoundingMode.HALF_UP);
 
         BigDecimal newYtdEarnings = currentYtdEarnings.add(netPay)
                 .setScale(2, RoundingMode.HALF_UP);
