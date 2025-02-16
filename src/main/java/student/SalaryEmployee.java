@@ -11,7 +11,7 @@ public class SalaryEmployee extends AbstractEmployee {
      * @param ytdTaxesPaid     current ytdTaxesPaid.
      */
     public SalaryEmployee(String employeeName, String employeeID, double payRate, double preTaxDeductions, double ytdEarnings, double ytdTaxesPaid) {
-        super(EmployeeType.SALARY,employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid);
+        super(employeeName, employeeID, payRate, preTaxDeductions, ytdEarnings, ytdTaxesPaid, EmployeeType.SALARY);
 
     }
 
